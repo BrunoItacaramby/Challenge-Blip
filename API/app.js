@@ -25,7 +25,7 @@ async function getFilteredRepos(username) {
   try {
     // Faz a solicitação para a API do GitHub
     const response = await githubClient.get(`/users/${username}/repos`, {
-      params: { sort: 'created', direction: 'asc', per_page: 100 }
+      params: { sort: 'created', direction: 'asc'}
     });
 
     const repos = response.data;
