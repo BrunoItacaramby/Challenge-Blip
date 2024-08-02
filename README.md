@@ -1,0 +1,1 @@
+Repositório contendo a API e o JSON do chatbot do exercicio para vaga de Chatbot Developer da Blip
