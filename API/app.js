@@ -35,7 +35,6 @@ async function getFilteredRepos(username) {
       .map(repo => ({
         title: repo.name,
         description: repo.description,
-        created: repo.created_at
       }));
 
     return filteredRepos;
