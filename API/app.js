@@ -29,17 +29,18 @@ async function getFilteredRepos(username) {
     });
 
     const repos = response.data;
-    const filteredRepos = repos
-      .filter(repo => repo.language === 'C#')
-      .slice(0,5)
-      .map(repo => ({
-        title: repo.name,
-        description: repo.description,
-      }));
-
-    return filteredRepos;
+    return repos.reduce((acc, repo) => {
+      if (repo.language === 'C#' && acc.length < 5) {
+        acc.push({
+          title: repo.name,
+          description: repo.description,
+        });
+      }
+      return acc;
+    }, []);
   } catch (error) {
-    throw new Error(error.response ? error.response.data.message : error.message);
+    const errorMessage = error.response ? error.response.data.message : error.message;
+    throw new Error(errorMessage);
   }
 }
 
