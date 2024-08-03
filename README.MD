@@ -1,0 +1,1 @@
+Repósitorio contendo a API e o JSON para o desafio da Blip!
